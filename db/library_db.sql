@@ -20,16 +20,6 @@ SET time_zone = "+00:00";
 -- Database: `library_db`
 --
 
-DELIMITER $$
---
--- Procedures
---
-CREATE DEFINER=`root`@`localhost` PROCEDURE `generate_due_list` ()  NO SQL
-SELECT I.issue_id, M.email, B.isbn, B.title
-FROM book_issue_log I INNER JOIN member M on I.member = M.username INNER JOIN book B ON I.book_isbn = B.isbn
-WHERE DATEDIFF(CURRENT_DATE, I.due_date) >= 0 AND DATEDIFF(CURRENT_DATE, I.due_date) % 5 = 0 AND (I.last_reminded IS NULL OR DATEDIFF(I.last_reminded, CURRENT_DATE) <> 0)$$
-
-DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -137,7 +127,7 @@ CREATE TABLE `librarian` (
 --
 
 INSERT INTO `librarian` (`id`, `username`, `password`) VALUES
-(1, 'genesis', '93c768d0152f72bc8d5e782c0b585acc35fb0442');
+(1, 'nma', '93c768d0152f72bc8d5e782c0b585acc35fb0442');
 
 -- --------------------------------------------------------
 
@@ -159,9 +149,9 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`id`, `username`, `password`, `name`, `email`, `balance`) VALUES
-(1, 'cloud9', 'c67adbca4bd9f7e583f05f4c7edbcb733c7c9233', 'Cloud Strife', 'cloud@shinra.com', 1000),
-(2, 'seph32', '75bf2b008d91258f56fc0d3a938ca64b8a631533', 'Sephiroth', 'seph@shinra.com', 540),
-(3, 'zack_ff7', '52d849001964af394040dc48b673f748e55e1af7', 'Zack Fair', 'zack@shinra.com', 1000);
+(1, 'rahand', 'c67adbca4bd9f7e583f05f4c7edbcb733c7c9233', 'rahand', 'rahand@kust.com', 1000),
+(2, 'sewa', '75bf2b008d91258f56fc0d3a938ca64b8a631533', 'sewa', 'sewa@kust.com', 540),
+(3, 'Shanaz', '52d849001964af394040dc48b673f748e55e1af7', 'shanaz', 'shanaz@kust.com', 1000);
 
 --
 -- Triggers `member`
@@ -193,9 +183,9 @@ CREATE TABLE `pending_book_requests` (
 --
 
 INSERT INTO `pending_book_requests` (`request_id`, `member`, `book_isbn`, `time`) VALUES
-(1, 'zack_ff7', '9780553801477', '2016-10-10 12:53:27'),
-(2, 'cloud9', '0000545010225', '2016-10-10 12:53:59'),
-(5, 'seph32', '0000553103547', '2016-10-10 12:59:45');
+(1, 'rahand', '9780553801477', '2021-10-10 12:53:27'),
+(2, 'sewa', '0000545010225', '2021-10-10 12:53:59'),
+(5, 'shanaz', '0000553103547', '2021-10-10 12:59:45');
 
 -- --------------------------------------------------------
 
