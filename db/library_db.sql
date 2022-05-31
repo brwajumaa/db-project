@@ -207,8 +207,8 @@ CREATE TABLE `pending_registrations` (
 --
 
 INSERT INTO `pending_registrations` (`username`, `password`, `name`, `email`, `balance`, `time`) VALUES
-('test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'Test', 'test@test.com', 500, '2016-10-10 13:01:13'),
-('test2', '109f4b3c50d7b0df729d299bc6f8e9ef9066971f', 'Test 2', 'test2@test2.com', 800, '2016-10-10 13:03:41');
+('osman', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'Osman', 'test@test.com', 500, '2016-10-10 13:01:13'),
+('sardar', '109f4b3c50d7b0df729d299bc6f8e9ef9066971f', 'Sardar', 'test2@test2.com', 800, '2016-10-10 13:03:41');
 
 --
 -- Indexes for dumped tables
